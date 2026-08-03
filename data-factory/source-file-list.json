@@ -1,0 +1,12 @@
+[
+    {
+        "sourceBaseURL":"https://raw.githubusercontent.com/",
+        "sourceRelativeURL":"Sai-Ripunjay/ADE-with-CA-Health-Expnd/blob/main/raw-data/canadian_health_expenditure.csv",
+        "sinkFileName":"ca_health_expnd.csv"
+    },
+    {
+        "sourceBaseURL":"https://raw.githubusercontent.com/",
+        "sourceRelativeURL":"Sai-Ripunjay/ADE-with-CA-Health-Expnd/blob/main/raw-data/canadian_population_by_state.csv",
+        "sinkFileName":"ca_population.csv"
+    }
+]
