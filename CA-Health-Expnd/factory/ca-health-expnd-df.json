@@ -1,0 +1,15 @@
+{
+	"name": "ca-health-expnd-df",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "canadaeast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "f8703f55-8e3f-4fb7-a15b-0ed958b47d04",
+		"tenantId": "5830a467-eb5c-45f1-ae45-aaa56af0cb41"
+	}
+}

@@ -1,0 +1,20 @@
+{
+	"name": "ds_cahealthexpnd26_file_list_ablob",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_ablob_cahealthexpnd26ablob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "source-file-list.json",
+				"container": "configs"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
