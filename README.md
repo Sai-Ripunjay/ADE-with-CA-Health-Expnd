@@ -14,7 +14,7 @@ You can view the [Power BI report here](https://app.powerbi.com/view?r=eyJrIjoiM
 
 ## Data Collection
 
-Data source is from [Australian Institute of Health and Welfare](https://www.aihw.gov.au/reports/health-welfare-expenditure/health-expenditure-australia-2021-22/data).
+Data source is from [Canadian Institute of Health and Welfare](https://www.aihw.gov.au/reports/health-welfare-expenditure/health-expenditure-Canada-2021-22/data).
 
 ## Services Used
 
