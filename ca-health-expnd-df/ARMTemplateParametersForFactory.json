@@ -11,8 +11,14 @@
 		"ls_adls_cahealthexpnd26dl_accountKey": {
 			"value": ""
 		},
+		"ls_ca_health_expnd_ws_accessToken": {
+			"value": ""
+		},
 		"ls_adls_cahealthexpnd26dl_properties_typeProperties_url": {
 			"value": "https://cahealthexpnd26dl.dfs.core.windows.net/"
+		},
+		"ls_ca_health_expnd_ws_properties_typeProperties_existingClusterId": {
+			"value": "0807-213311-mzwnlyvu"
 		},
 		"ls_http_cahealthexpnd26_source_properties_typeProperties_url": {
 			"value": "@{linkedService().sourceBaseURL}"

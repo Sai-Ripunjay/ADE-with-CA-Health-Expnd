@@ -15,9 +15,17 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_adls_cahealthexpnd26dl'"
 		},
+		"ls_ca_health_expnd_ws_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'ls_ca_health_expnd_ws'"
+		},
 		"ls_adls_cahealthexpnd26dl_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://cahealthexpnd26dl.dfs.core.windows.net/"
+		},
+		"ls_ca_health_expnd_ws_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0807-213311-mzwnlyvu"
 		},
 		"ls_http_cahealthexpnd26_source_properties_typeProperties_url": {
 			"type": "string",
@@ -59,6 +67,24 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/ls_ca_health_expnd_ws')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-7405616863784243.3.azuredatabricks.net",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('ls_ca_health_expnd_ws_accessToken')]"
+					},
+					"existingClusterId": "[parameters('ls_ca_health_expnd_ws_properties_typeProperties_existingClusterId')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/ls_http_cahealthexpnd26_source')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -77,6 +103,62 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_ingest_auhealthexpnd')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "ingest_population_file",
+						"type": "DatabricksNotebook",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"notebookPath": "/Users/saiazurejobpractice@gmail.com/CA-Health_Expnd/ingest/1.ingest_population_file"
+						},
+						"linkedServiceName": {
+							"referenceName": "ls_ca_health_expnd_ws",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "ingest_health_expnd_file",
+						"type": "DatabricksNotebook",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"notebookPath": "/Users/saiazurejobpractice@gmail.com/CA-Health_Expnd/ingest/2.ingest_expenditure_file"
+						},
+						"linkedServiceName": {
+							"referenceName": "ls_ca_health_expnd_ws",
+							"type": "LinkedServiceReference"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_ca_health_expnd_ws')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ds_cahealthexpnd26_file_list_ablob')]",
