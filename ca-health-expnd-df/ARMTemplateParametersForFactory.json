@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ca-health-expnd-df"
+		},
+		"ls_ablob_cahealthexpnd26ablob_connectionString": {
+			"value": ""
+		},
+		"ls_adls_cahealthexpnd26dl_accountKey": {
+			"value": ""
+		},
+		"ls_adls_cahealthexpnd26dl_properties_typeProperties_url": {
+			"value": "https://cahealthexpnd26dl.dfs.core.windows.net/"
+		},
+		"ls_http_cahealthexpnd26_source_properties_typeProperties_url": {
+			"value": "@{linkedService().sourceBaseURL}"
+		}
+	}
+}
