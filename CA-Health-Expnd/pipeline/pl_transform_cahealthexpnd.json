@@ -1,9 +1,9 @@
 {
-	"name": "pl_ingest_cahealthexpnd",
+	"name": "pl_transform_cahealthexpnd",
 	"properties": {
 		"activities": [
 			{
-				"name": "ingest_population_file",
+				"name": "trans_fund_source_with_pop",
 				"type": "DatabricksNotebook",
 				"dependsOn": [],
 				"policy": {
@@ -15,7 +15,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/saiazurejobpractice@gmail.com/CA-Health_Expnd/ingest/1.ingest_population_file"
+					"notebookPath": "/Users/saiazurejobpractice@gmail.com/CA-Health_Expnd/trans/fund_source_with_pop"
 				},
 				"linkedServiceName": {
 					"referenceName": "ls_ca_health_expnd_ws",
@@ -23,7 +23,7 @@
 				}
 			},
 			{
-				"name": "ingest_health_expnd_file",
+				"name": "trans_sector_expnd_with_pop",
 				"type": "DatabricksNotebook",
 				"dependsOn": [],
 				"policy": {
@@ -35,7 +35,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/saiazurejobpractice@gmail.com/CA-Health_Expnd/ingest/2.ingest_expenditure_file"
+					"notebookPath": "/Users/saiazurejobpractice@gmail.com/CA-Health_Expnd/trans/sector_expnd_with_pop"
 				},
 				"linkedServiceName": {
 					"referenceName": "ls_ca_health_expnd_ws",
